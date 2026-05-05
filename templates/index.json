@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Free shipping on orders $40+",
+        "heading": "Everyday essentials for every kind of pet.",
+        "subheading": "From cozy collars to clever feeders, we hand-pick practical accessories that make pet parenting easier — for dogs, cats, birds, rabbits, and more.",
+        "button_label": "Shop bestsellers",
+        "button_link": "/collections/all",
+        "button2_label": "Browse all pets",
+        "button2_link": "/collections"
+      }
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Bestsellers our customers love",
+        "subheading": "Tried, tested, and tail-approved — the accessories pet parents reorder again and again.",
+        "product_limit": 8
+      }
+    },
+    "trust": {
+      "type": "trust-badges",
+      "settings": {
+        "heading": "Why pet parents choose PawEssentials",
+        "subheading": "Quality you can feel, service you can count on."
+      },
+      "blocks": {
+        "b1": { "type": "badge", "settings": { "icon": "🚚", "title": "Free shipping $40+", "description": "Fast, tracked delivery on every qualifying order — no surprises at checkout." } },
+        "b2": { "type": "badge", "settings": { "icon": "↩️", "title": "30-day returns", "description": "Not the right fit? Send it back, hassle-free, within 30 days." } },
+        "b3": { "type": "badge", "settings": { "icon": "🐾", "title": "Pet-parent tested", "description": "Every product is vetted by real owners with real pets before it makes the catalog." } },
+        "b4": { "type": "badge", "settings": { "icon": "🔒", "title": "Secure checkout", "description": "Encrypted payments and full buyer protection on every order." } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    }
+  },
+  "order": ["hero", "featured", "trust"]
+}

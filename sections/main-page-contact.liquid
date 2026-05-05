@@ -1,0 +1,41 @@
+<article class="page container">
+  <header style="text-align:center; margin-bottom:2rem;">
+    <h1>{{ page.title | default: 'Contact us' }}</h1>
+    <p>We usually reply within one business day.</p>
+  </header>
+
+  {%- form 'contact' -%}
+    {%- if form.posted_successfully? -%}
+      <p style="background:#e8f5ee; padding:1rem; border-radius:8px; color:var(--color-success);">
+        Thanks — your message is on its way. We'll get back to you shortly.
+      </p>
+    {%- endif -%}
+
+    <div class="form-field">
+      <label for="ContactName">Name</label>
+      <input type="text" id="ContactName" name="contact[name]" required>
+    </div>
+    <div class="form-field">
+      <label for="ContactEmail">Email</label>
+      <input type="email" id="ContactEmail" name="contact[email]" required>
+    </div>
+    <div class="form-field">
+      <label for="ContactBody">Message</label>
+      <textarea id="ContactBody" name="contact[body]" rows="6" required></textarea>
+    </div>
+    <button type="submit" class="btn">Send message</button>
+  {%- endform -%}
+
+  {%- if page.content != blank -%}
+    <div class="rte" style="margin-top:2.5rem;">
+      {{ page.content }}
+    </div>
+  {%- endif -%}
+</article>
+
+{% schema %}
+{
+  "name": "Contact page",
+  "settings": []
+}
+{% endschema %}

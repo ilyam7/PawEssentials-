@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+    <div>
+      {%- if product.featured_image -%}
+        {{ product.featured_image | image_url: width: 1200 | image_tag: alt: product.title }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+    <div>
+      <h1>{{ product.title }}</h1>
+      <p class="product-card__price" style="font-size:1.4rem;">{{ product.price | money }}</p>
+      <div class="rte">{{ product.description }}</div>
+
+      {%- form 'product', product -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button type="submit" class="btn" style="margin-top:1rem;">
+          {%- if product.available -%}Add to cart{%- else -%}Sold out{%- endif -%}
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": []
+}
+{% endschema %}

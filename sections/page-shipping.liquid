@@ -1,0 +1,26 @@
+<article class="page container">
+  <header style="text-align:center; margin-bottom:2rem;">
+    <h1>{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.subheading }}</p>
+  </header>
+
+  <div class="rte">
+    {{ section.settings.body }}
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Shipping policy page",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shipping policy" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Clear, no-surprise shipping for every order." },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<h3>Processing time</h3><p>Orders are processed within 1–2 business days (Monday–Friday, excluding holidays). You'll get a confirmation email when your order is placed and a tracking link as soon as it ships.</p><h3>Domestic shipping</h3><p>We ship across the country with standard tracked delivery. Estimated transit time is 5–10 business days. <strong>Free shipping on all orders over $40</strong> — flat-rate shipping otherwise.</p><h3>International shipping</h3><p>We ship to most countries worldwide. International delivery typically arrives within 7–18 business days. Shipping cost is calculated at checkout based on weight and destination. Any import duties, taxes, or customs fees are the responsibility of the buyer.</p><h3>Tracking your order</h3><p>Once your order ships, you'll receive an email with a tracking number and link. Tracking updates can take 24–48 hours to appear in the carrier's system.</p><h3>Lost or delayed packages</h3><p>If your package hasn't arrived within the estimated window, please contact us at support@pawessentials.com and we'll work with the carrier to locate it or arrange a replacement.</p><h3>Returns</h3><p>See our 30-day return policy on the <a href='/pages/faq'>FAQ page</a> or contact us directly to start a return.</p>"
+    }
+  ]
+}
+{% endschema %}

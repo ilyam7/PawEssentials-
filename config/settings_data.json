@@ -1,0 +1,14 @@
+{
+  "current": {
+    "color_accent": "#ff7a59",
+    "color_text": "#1a1a1a",
+    "color_bg": "#ffffff"
+  },
+  "presets": {
+    "Default": {
+      "color_accent": "#ff7a59",
+      "color_text": "#1a1a1a",
+      "color_bg": "#ffffff"
+    }
+  }
+}

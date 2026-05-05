@@ -1,0 +1,94 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__about">
+        <h4>{{ shop.name }}</h4>
+        <p>{{ section.settings.tagline }}</p>
+      </div>
+
+      <div>
+        <h4>{{ section.settings.col1_heading }}</h4>
+        <ul class="footer__links">
+          {%- for link in section.settings.col1_menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div>
+        <h4>{{ section.settings.col2_heading }}</h4>
+        <ul class="footer__links">
+          {%- for link in section.settings.col2_menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Get in touch</h4>
+        <ul class="footer__links">
+          {%- if section.settings.contact_email != blank -%}
+            <li><a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a></li>
+          {%- endif -%}
+          {%- if section.settings.support_hours != blank -%}
+            <li>{{ section.settings.support_hours }}</li>
+          {%- endif -%}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+      <span>Practical accessories for happy pets.</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Practical, everyday accessories for every kind of pet — chosen with care, delivered to your door."
+    },
+    {
+      "type": "text",
+      "id": "col1_heading",
+      "label": "Column 1 heading",
+      "default": "Shop"
+    },
+    {
+      "type": "link_list",
+      "id": "col1_menu",
+      "label": "Column 1 menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "col2_heading",
+      "label": "Column 2 heading",
+      "default": "Help"
+    },
+    {
+      "type": "link_list",
+      "id": "col2_menu",
+      "label": "Column 2 menu"
+    },
+    {
+      "type": "email",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "support@pawessentials.com"
+    },
+    {
+      "type": "text",
+      "id": "support_hours",
+      "label": "Support hours",
+      "default": "Mon–Fri, 9am–5pm"
+    }
+  ]
+}
+{% endschema %}

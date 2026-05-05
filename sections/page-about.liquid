@@ -1,0 +1,26 @@
+<article class="page container">
+  <header style="text-align:center; margin-bottom:2rem;">
+    <h1>{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.tagline }}</p>
+  </header>
+
+  <div class="rte">
+    {{ section.settings.body }}
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "About page",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "About PawEssentials" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Practical accessories, picked by people who love pets as much as you do." },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>PawEssentials started with a simple frustration: shopping for pet gear shouldn't feel like a gamble. We were tired of flashy marketing for products that didn't last a week — so we built a store stocked with the everyday accessories real pet parents actually use and reorder.</p><p>From durable collars and tangle-free leashes to clever feeders, cozy beds, and grooming tools, every item in our catalog is selected against three rules: it has to be practical, it has to be well made, and it has to be priced fairly. We work with manufacturers who share that standard, and we ship worldwide so pets everywhere can enjoy the upgrade.</p><p>We're not a pet brand pretending to know everything — we're pet owners ourselves, curating the gear we'd want for our own dogs, cats, rabbits, and feathered friends. Thanks for letting us be part of your pet's everyday life.</p>"
+    }
+  ]
+}
+{% endschema %}

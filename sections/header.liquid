@@ -1,0 +1,44 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="{{ routes.root_url }}" class="site-header__logo" aria-label="{{ shop.name }}">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 240 | image_tag: loading: 'eager', alt: shop.name, height: 40 }}
+      {%- else -%}
+        Paw<span>Essentials</span>
+      {%- endif -%}
+    </a>
+
+    <nav class="site-nav" role="navigation" aria-label="Main">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <div class="site-header__actions">
+      <a href="{{ routes.search_url }}" aria-label="Search">Search</a>
+      <a href="{{ routes.account_url }}" aria-label="Account">Account</a>
+      <a href="{{ routes.cart_url }}" class="btn btn--ghost" aria-label="Cart">
+        Cart ({{ cart.item_count }})
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Navigation menu"
+    }
+  ]
+}
+{% endschema %}

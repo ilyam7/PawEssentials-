@@ -1,0 +1,46 @@
+<article class="page container">
+  <header style="text-align:center; margin-bottom:2rem;">
+    <h1>{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.subheading }}</p>
+  </header>
+
+  <div class="rte">
+    {%- for block in section.blocks -%}
+      <details style="border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:1rem 1.25rem; margin-bottom:0.75rem;" {{ block.shopify_attributes }}>
+        <summary style="cursor:pointer; font-weight:600; color:var(--color-text);">{{ block.settings.question }}</summary>
+        <div style="margin-top:0.75rem;">{{ block.settings.answer }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "FAQ page",
+  "max_blocks": 20,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently asked questions" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Everything you need to know before placing your order." }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "qa", "settings": { "question": "How long does shipping take?", "answer": "<p>Most orders are processed within 1–2 business days and delivered in 5–10 business days, depending on your location. You'll receive a tracking link by email as soon as your order ships.</p>" } },
+      { "type": "qa", "settings": { "question": "Do you ship internationally?", "answer": "<p>Yes — we ship to most countries worldwide. International delivery times typically range from 7–18 business days. Customs fees, if any, are the buyer's responsibility.</p>" } },
+      { "type": "qa", "settings": { "question": "What is your return policy?", "answer": "<p>We offer 30-day returns on unused items in original condition. Just email us at support@pawessentials.com to start a return — we'll send you instructions and a return address.</p>" } },
+      { "type": "qa", "settings": { "question": "Can I cancel or change my order?", "answer": "<p>If your order hasn't shipped yet, we can cancel or update it — just reach out within a few hours of ordering and we'll do our best.</p>" } },
+      { "type": "qa", "settings": { "question": "Are your products safe for all pets?", "answer": "<p>Every product page lists the species and size range it's designed for. If you're unsure whether something fits your pet, message us before ordering — we're happy to help you choose.</p>" } },
+      { "type": "qa", "settings": { "question": "How do I contact support?", "answer": "<p>Email us at support@pawessentials.com or use the form on our <a href='/pages/contact'>Contact page</a>. We reply within one business day, Monday through Friday.</p>" } }
+    ]
+  }
+}
+{% endschema %}

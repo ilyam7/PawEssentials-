@@ -1,0 +1,39 @@
+<section class="section">
+  <div class="container" style="max-width: 800px;">
+    <h1>Your cart</h1>
+
+    {%- if cart.item_count == 0 -%}
+      <p>Your cart is empty.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn">Continue shopping</a>
+    {%- else -%}
+      {%- form 'cart', cart -%}
+        {%- for item in cart.items -%}
+          <div style="display:flex; gap:1rem; padding:1rem 0; border-bottom:1px solid var(--color-border);">
+            <div style="width:90px; flex-shrink:0;">
+              {%- if item.image -%}
+                {{ item.image | image_url: width: 180 | image_tag: alt: item.title }}
+              {%- endif -%}
+            </div>
+            <div style="flex:1;">
+              <a href="{{ item.url }}"><strong>{{ item.product.title }}</strong></a>
+              <p style="margin:0.25rem 0; color:var(--color-muted);">Qty: {{ item.quantity }}</p>
+              <p style="margin:0;">{{ item.final_line_price | money }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem;">
+          <strong>Subtotal: {{ cart.total_price | money }}</strong>
+          <button type="submit" name="checkout" class="btn">Check out</button>
+        </div>
+      {%- endform -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}
